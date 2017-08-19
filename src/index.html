@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">
+    <!-- build:css -->
+    <link href="scss/style.css" rel="stylesheet">
+    <!-- endbuild -->
+</head>
+<body>
+
+<main>
+    <div class="container">
+        <h1>Competency based task</h1>
+        <h2>Accordion</h2>
+    </div>
+    <script id="accordion_hb" type="text/x-handlebars-template">​
+        <div class="accordion">
+            <ul>
+                {{#each category}}
+                <li>
+                    <a href="#" onclick="Accordion.onClickToggle(event, this)"
+                       class="trigger">{{this.title}}</a>
+                    <ul class="dropdown">
+                        {{#each subcategory}}
+                        <li>
+                            <a href="#" onclick="Accordion.onClickToggle(event, this)"
+                               class="trigger">{{this.title}}</a>
+                            <ul class="dropdown">
+                                {{#each subsubcategory}}
+                                <li class="content">
+                                    <p>{{this.content}}</p>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </script>
+</main>
+
+<!-- build:js -->
+<script src="bundle.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

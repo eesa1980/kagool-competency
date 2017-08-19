@@ -1,0 +1,15 @@
+
+//----------------------------------*\
+// CONFIG MODULES
+//----------------------------------*/
+
+// Config modules
+@import 'modules/_vars.scss';
+@import 'mixins/_mixins.scss';
+
+//----------------------------------*\
+// MODULES
+//----------------------------------*/
+
+@import 'modules/app.scss';
+@import 'modules/accordion.scss';

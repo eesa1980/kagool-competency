@@ -1,0 +1,13 @@
+@import 'vars';
+
+body {
+  font-family: $font;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  margin: auto;
+  padding: 0 15px;
+  width: 100%;
+}

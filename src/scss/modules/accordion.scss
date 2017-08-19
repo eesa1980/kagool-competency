@@ -1,0 +1,59 @@
+@import 'vars';
+
+.accordion {
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    background: rgb(239, 238, 242);
+    color: rgb(53, 52, 53);
+    display: block;
+    font-weight: 700;
+    padding: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background .5s;
+
+    &:hover {
+      background: $river-bed;
+      color: #fff;
+    }
+
+    &.active {
+      background: $river-bed;
+      color: #fff;
+    }
+  }
+
+  ul ul a {
+    background: $concrete;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    &:hover {
+      background: $nepal;
+      color: #fff;
+    }
+
+    &.active {
+      background: $nepal;
+      color: #fff;
+    }
+  }
+
+  .content {
+    padding-left: 60px;
+    right: 60px;
+  }
+
+  .dropdown {
+    display: none;
+  }
+}
