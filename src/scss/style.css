@@ -3,6 +3,10 @@ body {
   max-width: 100%;
   overflow-x: hidden; }
 
+img {
+  height: auto;
+  max-width: 100%; }
+
 .container {
   margin: auto;
   padding: 0 15px; }
@@ -55,3 +59,32 @@ body {
 
 .accordion .dropdown {
   display: none; }
+
+.grid-cta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .grid-cta figure {
+    background: #dfe2e8;
+    margin: 0 0 20px;
+    padding: 0;
+    width: 100%; }
+  .grid-cta figcaption {
+    padding: 20px; }
+  .grid-cta img {
+    display: block;
+    width: 100%; }
+
+@media (min-width: 768px) {
+  .grid-cta figure {
+    width: 50%; } }
+
+@media (min-width: 992px) {
+  .grid-cta figure {
+    width: 25%; } }

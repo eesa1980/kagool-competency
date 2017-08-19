@@ -1,0 +1,39 @@
+@import './../vars';
+
+.grid-cta {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  figure {
+    background: $light-blue;
+    margin: 0 0 20px;
+    padding: 0;
+    width: 100%;
+  }
+
+  figcaption {
+    padding: 20px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-cta {
+    figure {
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .grid-cta {
+    figure {
+      width: 25%;
+    }
+  }
+}

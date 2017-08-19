@@ -22,14 +22,13 @@ const AccordionModule = (() => {
             $('html, body').animate({
                 scrollTop: getTrigger().offset().top
             }, 1000);
-        }, 500, callback)
-    }
+        }, 500, callback);
+    };
 
     /* Open or close dropdown when trigger clicked */
     const onClickToggleDropdown = (e, el) => {
 
         e.preventDefault();
-
         setTrigger($(el));
 
         /* Opens/Closes the clicked dropdown on trigger */
@@ -74,12 +73,13 @@ const AccordionModule = (() => {
 
     /* Open or close all on keypress up/down arrows */
     const onKeyPressToggleAll = () => {
+        let $dropdown = $('.dropdown');
         window.addEventListener('keydown', (e) => {
             if (e.key === "ArrowDown") {
-                $('.dropdown').slideDown();
+                $dropdown.slideDown();
             }
             else if (e.key === "ArrowUp") {
-                $('.dropdown').slideUp();
+                $dropdown.slideUp();
             }
         });
     };
