@@ -6,6 +6,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- build:css -->
     <link href="scss/style.css" rel="stylesheet">
     <!-- endbuild -->
@@ -17,33 +19,69 @@
         <h1>Competency based task</h1>
         <h2>Accordion</h2>
     </div>
+
+    <!--
+    ACCORDION
+    Used handlebars as even though I am more familiar with ReactJS it seemed to be an overkill for such a small task
+    -->
     <script id="accordion_hb" type="text/x-handlebars-template">​
         <div class="accordion">
             <ul>
-                {{#each category}}
+                {{#each beers}}
                 <li>
-                    <a href="#" onclick="Accordion.onClickToggle(event, this)"
-                       class="trigger">{{this.title}}</a>
+                    <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                       class="trigger">{{this.name}}</a>
                     <ul class="dropdown">
-                        {{#each subcategory}}
                         <li>
-                            <a href="#" onclick="Accordion.onClickToggle(event, this)"
-                               class="trigger">{{this.title}}</a>
+                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                               class="trigger">Tagline</a>
                             <ul class="dropdown">
-                                {{#each subsubcategory}}
                                 <li class="content">
-                                    <p>{{this.content}}</p>
+                                    <p>{{this.tagline}}</p>
                                 </li>
-                                {{/each}}
                             </ul>
                         </li>
-                        {{/each}}
+                        <li>
+                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                               class="trigger">First Brewed</a>
+                            <ul class="dropdown">
+                                <li class="content">
+                                    <p>{{this.first_brewed}}</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                               class="trigger">Description</a>
+                            <ul class="dropdown">
+                                <li class="content">
+                                    <p>{{this.description}}</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                               class="trigger">Food Pairing</a>
+                            <ul class="dropdown">
+                                <li class="content">
+                                    <ul>
+                                        {{#each this.food_pairing}}
+                                        <li>
+                                            {{this}}
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 {{/each}}
             </ul>
         </div>
     </script>
+    <!-- ./ACCORDION -->
+
 </main>
 
 <!-- build:js -->

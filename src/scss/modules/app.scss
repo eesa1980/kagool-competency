@@ -1,4 +1,4 @@
-@import 'vars';
+@import './../vars';
 
 body {
   font-family: $font;
@@ -9,5 +9,4 @@ body {
 .container {
   margin: auto;
   padding: 0 15px;
-  width: 100%;
 }

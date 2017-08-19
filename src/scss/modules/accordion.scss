@@ -1,7 +1,6 @@
-@import 'vars';
+@import './../vars';
 
 .accordion {
-
   ul {
     margin: 0;
     padding: 0;
@@ -12,8 +11,8 @@
   }
 
   a {
-    background: rgb(239, 238, 242);
-    color: rgb(53, 52, 53);
+    background: $dark-blue;
+    color: $dark-grey;
     display: block;
     font-weight: 700;
     padding: 20px;
@@ -23,34 +22,43 @@
 
     &:hover {
       background: $river-bed;
-      color: #fff;
+      color: $white;
     }
 
     &.active {
       background: $river-bed;
-      color: #fff;
+      color: $white;
     }
   }
 
   ul ul a {
-    background: $concrete;
+    background: $light-blue;
     padding-left: 40px;
-    padding-right: 40px;
+    padding-right: 20px;
 
     &:hover {
       background: $nepal;
-      color: #fff;
+      color: $white;
     }
 
     &.active {
       background: $nepal;
-      color: #fff;
+      color: $white;
     }
   }
-
   .content {
-    padding-left: 60px;
-    right: 60px;
+    margin: 0;
+    padding: 20px 20px 20px 60px;
+
+    li {
+      list-style: square;
+    }
+
+    li,
+    p {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .dropdown {

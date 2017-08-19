@@ -30,11 +30,12 @@ const stylish = require('jshint-stylish');
 const uglify = require('gulp-uglify');
 
 //--------------------------------------*\
-// SASS
+// SASS / CSS
 //--------------------------------------*/
 
 const sass = require('gulp-sass');
 const sassLint = require('gulp-sass-lint');
+const autoprefixer = require('gulp-autoprefixer');
 
 //--------------------------------------*\
 // OTHER
@@ -62,8 +63,8 @@ gulp.task('browser-sync', ['sass', 'js', 'html'], () => {
 //--------------------------------------*/
 
 const watch = () => {
-    gulp.watch(['src/js/**/*.js'], ['jsLint', 'js']);
-    gulp.watch("src/scss/style.css", ['sass']).on('change', browserSync.reload);
+    gulp.watch(["src/js/**/*.js"], ['js-hint', 'js']);
+    gulp.watch("src/scss/**/*.scss", ['sass', 'sass-lint']).on('change', browserSync.reload);
     gulp.watch("./src/index.html", ['html']).on('change', browserSync.reload);
 };
 
@@ -87,7 +88,7 @@ gulp.task('js', () => {
     }
 );
 
-gulp.task('jsLint', () => {
+gulp.task('js-hint', () => {
     return gulp.src(['src/js/**/*.js'])
         .pipe(jshint({
             'esversion': 6
@@ -95,12 +96,21 @@ gulp.task('jsLint', () => {
         .pipe(jshint.reporter(stylish))
 });
 
-gulp.task('sass', function () {
-    return gulp.src('./src/scss/**/*.scss')
+gulp.task('sass-lint', function () {
+    return gulp.src("src/scss/**/*.*")
         .pipe(sassLint())
         .pipe(sassLint.format())
         .pipe(sassLint.failOnError())
+        .pipe(browserSync.stream());
+});
+
+gulp.task('sass', function () {
+    return gulp.src("src/scss/style.scss")
         .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 3 versions'],
+            cascade: false
+        }))
         .pipe(gulp.dest('src/scss/'))
 });
 
@@ -115,7 +125,7 @@ gulp.task('html', () => {
 // BUILD DIST FILES
 //----------------------------------*/
 
-gulp.task('buildDist', () => {
+gulp.task('build-dist', () => {
     jsBuild();
     htmlBuild();
     sassBuild();
@@ -123,14 +133,7 @@ gulp.task('buildDist', () => {
 
 
 const jsBuild = () => {
-    const b = browserify({
-        entries: './src/js/app.js',
-        debug: true
-    }).transform("babelify", {presets: ["es2015"]});
-
-    return b.bundle()
-        .pipe(source('bundle.js'))
-        .pipe(buffer())
+    return gulp.src('./src/bundle.js')
         .pipe(uglify())
         .on('error', gutil.log)
         .pipe(gulp.dest('./dist/js/'));
@@ -153,3 +156,7 @@ const sassBuild = () => {
         .pipe(gulp.dest('dist/css/'))
 };
 
+//----------------------------------*\
+// DEFAULT
+//----------------------------------*/
+gulp.task('default', ['browser-sync']);

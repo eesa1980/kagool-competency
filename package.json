@@ -22,6 +22,7 @@
     "browserify": "^14.4.0",
     "buffer": "latest",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^7.0.0",
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-concat": "^2.6.1",
@@ -38,8 +39,10 @@
     "vinyl-source-stream": "latest"
   },
   "dependencies": {
+    "es6-promise": "^4.1.1",
     "gulp-rename": "latest",
-    "jquery": "latest",
-    "handlebars": "latest"
+    "handlebars": "latest",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "latest"
   }
 }
