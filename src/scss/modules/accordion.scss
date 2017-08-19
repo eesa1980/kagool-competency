@@ -1,6 +1,8 @@
 @import './../vars';
 
 .accordion {
+  margin-bottom: 40px;
+
   ul {
     margin: 0;
     padding: 0;
@@ -16,9 +18,15 @@
     display: block;
     font-weight: 700;
     padding: 20px;
+    position: relative;
     text-decoration: none;
     text-transform: uppercase;
     transition: background .5s;
+
+    &::after {
+      content: '+';
+      float: right;
+    }
 
     &:hover {
       background: $river-bed;
@@ -28,6 +36,10 @@
     &.active {
       background: $river-bed;
       color: $white;
+
+      &::after {
+        content: '-';
+      }
     }
   }
 

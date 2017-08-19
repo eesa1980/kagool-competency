@@ -3,8 +3,23 @@
  */
 
 import AccordionModule from './modules/accordion/Accordion';
+import GridCTAModule from './modules/gridCTA/GridCTA';
+import objectFitImages from 'object-fit-images';
+import es6promise from 'es6-promise';
 
-//Allows window access to AccordionModule
+//Polyfill for promises
+es6promise.polyfill();
+
+//Polyfill for object fit/position
+objectFitImages();
+
+//Allows window access to Modules
 window.Accordion = AccordionModule;
+window.GridCTA = GridCTAModule;
+
 AccordionModule.renderAccordion();
 AccordionModule.onKeyPressToggleAll();
+
+GridCTAModule.renderGrid();
+
+

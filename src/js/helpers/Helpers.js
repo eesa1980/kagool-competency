@@ -17,7 +17,7 @@ export const HandlebarsHelper = (() => {
         const template = Handlebars.compile(source);
         const context = object.data;
         const html = template(context);
-        $(object.outputElement).append(html);
+        $(object.outputElement).html(html);
     };
 
     return {

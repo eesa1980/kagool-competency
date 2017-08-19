@@ -43,6 +43,8 @@
     "gulp-rename": "latest",
     "handlebars": "latest",
     "isomorphic-fetch": "^2.2.1",
-    "jquery": "latest"
+    "jquery": "latest",
+    "lodash": "^4.17.4",
+    "object-fit-images": "^3.2.3"
   }
 }

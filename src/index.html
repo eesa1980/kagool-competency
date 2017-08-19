@@ -24,6 +24,9 @@
     ACCORDION
     Used handlebars as even though I am more familiar with ReactJS it seemed to be an overkill for such a small task
     -->
+    <div id="accordion">
+        <!-- Dynamic content rendered here -->
+    </div>
     <script id="accordion_hb" type="text/x-handlebars-template">​
         <div class="accordion">
             <ul>
@@ -83,50 +86,46 @@
     <!-- ./ACCORDION -->
 
     <!-- CTA GRID -->
-    <script id="grid_cta_hb" type="text/x-handlebars-template">​
+    <div class="container">
+        <h2>CTA Grid</h2>
+        <div class="abv-filter">
+            <label for="abv_filter">Abv filter:&nbsp;</label>
+            <select name="abv_filter" id="abv_filter" onchange="GridCTA.onChangeABVFilter(event, this)">
+                <option disabled selected>
+                    - select -
+                </option>
+                <option value="high_to_low">
+                    High to low
+                </option>
+                <option value="low_to_high">
+                    Low to high
+                </option>
+            </select>
+        </div>
+    </div>
 
+    <div id="grid_cta">
+        <!-- Dynamic content rendered here -->
+    </div>
+
+    <script id="grid_cta_hb" type="text/x-handlebars-template">​
+        <div class="grid-cta">
+            <div class="flex-wrapper">
+                {{#each beers}}
+                <figure>
+                    <img src="{{{this.image_url}}}" alt="{{{this.name}}}" width="272" height="1058"/>
+                    <figcaption>
+                        <h3>{{this.name}}</h3>
+                        <h4>{{this.tagline}}</h4>
+                        <h5>Abv: {{this.abv}}</h5>
+                        <p>{{this.description}}</p>
+                    </figcaption>
+                </figure>
+                {{/each}}
+            </div>
+        </div>
     </script>
     <!-- ./CTA GRID -->
-
-    <div class="grid-cta">
-        <figure>
-            <img src="./jsLogo.png" alt="image"/>
-            <figcaption>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor sem vel lacinia vestibulum. Nam et
-                ipsum in libero egestas tincidunt. Maecenas libero mi, cursus eget consectetur in, pharetra sit amet
-                nisi. Nulla facilisi. Aenean mattis erat massa, id viverra nisl efficitur non. Donec sodales enim non
-                arcu cursus, id tempus sapien cursus. Nulla rutrum feugiat tellus a ullamcorper. Nam in scelerisque
-                lorem. Vivamus venenatis euismod nibh in tempus. Phasellus vel nunc tristique, maximus nunc vel,
-                porttitor massa.
-            </figcaption>
-        </figure>
-        <figure>
-            <img src="./jsLogo.png" alt="image"/>
-            <figcaption>
-                test
-            </figcaption>
-        </figure>
-        <figure>
-            <img src="./jsLogo.png" alt="image"/>
-            <figcaption>
-                test
-            </figcaption>
-        </figure>
-        <figure>
-            <img src="./jsLogo.png" alt="image"/>
-            <figcaption>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor sem vel lacinia vestibulum. Nam et
-                ipsum in libero egestas tincidunt. Maecenas libero mi, cursus eget consectetur in, pharetra sit amet
-                nisi. Nulla facilisi.
-            </figcaption>
-        </figure>
-        <figure>
-            <img src="./jsLogo.png" alt="image"/>
-            <figcaption>
-                test
-            </figcaption>
-        </figure>
-    </div>
 
 </main>
 

@@ -1,14 +1,21 @@
 @import './../vars';
 
 .grid-cta {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+
+  .flex-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .abv-filter {
+    display: block;
+  }
 
   figure {
-    background: $light-blue;
-    margin: 0 0 20px;
-    padding: 0;
+    background: $concrete;
+    margin: 0 0 2px;
+    padding: 40px 0 0;
     width: 100%;
   }
 
@@ -18,14 +25,24 @@
 
   img {
     display: block;
+    font-family: 'object-fit: contain; object-position: center;';
+    height: 300px;
+    object-fit: contain;
+    object-position: center;
     width: 100%;
   }
+
 }
 
 @media (min-width: 768px) {
   .grid-cta {
     figure {
-      width: 50%;
+      border-right: 2px solid $white;
+      width: calc(50% - 2px);
+
+      &:nth-child(2n) {
+        border-right: 0;
+      }
     }
   }
 }
@@ -33,7 +50,16 @@
 @media (min-width: 992px) {
   .grid-cta {
     figure {
-      width: 25%;
+      border-right: 1px solid $white;
+      width: calc(25% - 6px);
+
+      &:nth-child(2n) {
+        border-right: 2px solid $white;
+      }
+
+      &:nth-child(4n) {
+        border-right: 0;
+      }
     }
   }
 }

@@ -73,8 +73,8 @@ const AccordionModule = (() => {
 
     /* Open or close all on keypress up/down arrows */
     const onKeyPressToggleAll = () => {
-        let $dropdown = $('.dropdown');
         window.addEventListener('keydown', (e) => {
+            let $dropdown = $('.dropdown');
             if (e.key === "ArrowDown") {
                 $dropdown.slideDown();
             }
@@ -91,7 +91,7 @@ const AccordionModule = (() => {
                 Helpers.HandlebarsHelper.renderElement({
                     handlebarId: 'accordion_hb',
                     data: {beers: value},
-                    outputElement: 'main'
+                    outputElement: '#accordion'
                 });
             });
     };
