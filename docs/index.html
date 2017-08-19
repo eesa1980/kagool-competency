@@ -60,7 +60,7 @@
             <div class="flex-wrapper">
                 {{#each beers}}
                 <figure>
-                    <!--<img src="{{{this.image_url}}}" alt="{{{this.name}}}" width="272" height="1058"/>-->
+                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{{this.image_url}}}" alt="{{{this.name}}}" width="272" height="1058"/>
                     <figcaption>
                         <h3>{{this.name}}</h3>
                         <h4>{{this.tagline}}</h4>
@@ -70,4 +70,13 @@
                 </figure>
                 {{/each}}
             </div>
-        </div></script><!-- ./CTA GRID --></main><script src="./js/bundle.js"></script></body></html>
+        </div></script><!-- ./CTA GRID --></main><script src="./js/bundle.js"></script><script>function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+            }
+        }
+    }
+
+    window.onload = init;</script></body></html>
