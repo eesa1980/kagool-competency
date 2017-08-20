@@ -3,12 +3,11 @@
  */
 import $ from 'jquery';
 import Handlebars from 'handlebars';
-import fetch from 'isomorphic-fetch';
 
 //----------------------------------*\
-// HELPER FILES
-// Created this as these lines of code
-// Are likely to be duplicated
+// HELPERS
+// Created as these lines of code
+// are likely to be duplicated
 //----------------------------------*/
 
 export const HandlebarsHelper = (() => {
@@ -25,32 +24,3 @@ export const HandlebarsHelper = (() => {
         renderElement: renderElement
     };
 })();
-
-export const FetchHelper = (() => {
-    "use strict";
-    let fetchAll = function (URL) {
-        return (
-            fetch(URL)
-                .then((response) => {
-                    if (response.status >= 400) {
-                        throw new Error("Bad response from server");
-                    }
-                    return response.json();
-                })
-        );
-    };
-    return {
-        fetchAll: fetchAll
-    };
-
-})();
-
-export const ImgDefer = (() =>{
-    "use strict";
-    let imgDefer = document.getElementsByTagName('img');
-    for (let i = 0; i < imgDefer.length; i++) {
-        if (imgDefer[i].getAttribute('data-src')) {
-            imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
-        }
-    }
-});

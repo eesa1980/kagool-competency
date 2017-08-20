@@ -3,10 +3,48 @@
 .carousel {
   margin-bottom: 100px;
 
-  .cycle-slideshow{
+  .cycle-slideshow {
+    margin-bottom: 20px;
+    width: 100%;
 
-    img{
-      width: 100%;
+  }
+
+  .text-slide {
+    height: 100%;
+
+    &:nth-child(2n) {
+      background: $concrete;
+    }
+
+    &:nth-child(3n) {
+      background: $nepal;
+      color: $white;
+    }
+
+  }
+
+  .inner {
+    padding: 30px;
+  }
+
+  .img-slide {
+    font-family: 'object-fit: contain; object-position: center;';
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+  }
+
+  .text-slide,
+  .img-slide {
+    height: 350px;
+  }
+
+  @media (min-width: 768px) {
+    .cycle-slideshow {
+      width: 50%;
+
     }
   }
+
 }

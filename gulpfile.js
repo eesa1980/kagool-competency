@@ -38,6 +38,12 @@ const sassLint = require('gulp-sass-lint');
 const autoprefixer = require('gulp-autoprefixer');
 
 //--------------------------------------*\
+// IMAGES
+//--------------------------------------*/
+
+const imagemin = require('gulp-imagemin');
+
+//--------------------------------------*\
 // OTHER
 //--------------------------------------*/
 
@@ -97,7 +103,7 @@ gulp.task('js-hint', () => {
 });
 
 gulp.task('sass-lint', function () {
-    return gulp.src("src/css/**/*.*")
+    return gulp.src("src/css/**/*.scss")
         .pipe(sassLint())
         .pipe(sassLint.format())
         .pipe(sassLint.failOnError())
@@ -128,7 +134,8 @@ gulp.task('html', () => {
 gulp.task('build-docs', () => {
     jsBuild();
     htmlBuild();
-    sassBuild();
+    cssBuild();
+    imageCompressAndBuild();
 });
 
 
@@ -149,12 +156,28 @@ const htmlBuild = () => {
         .pipe(gulp.dest('./docs'))
 };
 
-const sassBuild = () => {
+const cssBuild = () => {
     return gulp.src('src/css/style.css')
         .pipe(sass().on('error', sass.logError))
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(gulp.dest('docs/css/'))
 };
+
+const imageCompressAndBuild = () => {
+    gulp.src('src/image/*')
+        .pipe(imagemin([
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.jpegtran({progressive: true}),
+            imagemin.optipng({optimizationLevel: 5}),
+            imagemin.svgo({
+                plugins: [
+                    {removeViewBox: true},
+                    {cleanupIDs: false}
+                ]
+            })
+        ]))
+        .pipe(gulp.dest('docs/images/'));
+}
 
 //----------------------------------*\
 // DEFAULT

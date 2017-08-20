@@ -1,5 +1,6 @@
 body {
   font-family: "Lato", sans-serif;
+  line-height: 1.4;
   max-width: 100%;
   overflow-x: hidden; }
 
@@ -11,6 +12,23 @@ img {
   margin: auto;
   padding: 0 15px; }
 
+.fixed-width {
+  max-width: 800px; }
+
+.flex-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.text-center {
+  text-align: center; }
+
 .accordion {
   margin-bottom: 100px; }
   .accordion ul {
@@ -19,7 +37,7 @@ img {
   .accordion li {
     list-style: none; }
   .accordion a {
-    background: #efeef2;
+    background: #dfe2e8;
     color: #353435;
     display: block;
     font-weight: 700;
@@ -42,14 +60,14 @@ img {
       .accordion a.active::after {
         content: '-'; }
   .accordion ul ul a {
-    background: #dfe2e8;
+    background: #f2f2f2;
     padding-left: 40px;
     padding-right: 20px; }
     .accordion ul ul a:hover {
-      background: #62718D;
+      background: #62718d;
       color: #fff; }
     .accordion ul ul a.active {
-      background: #62718D;
+      background: #62718d;
       color: #fff; }
   .accordion .content {
     margin: 0;
@@ -65,25 +83,38 @@ img {
 
 .carousel {
   margin-bottom: 100px; }
-  .carousel .cycle-slideshow img {
+  .carousel .cycle-slideshow {
+    margin-bottom: 20px;
     width: 100%; }
-
-.grid-cta .flex-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
+  .carousel .text-slide {
+    height: 100%; }
+    .carousel .text-slide:nth-child(2n) {
+      background: #f2f2f2; }
+    .carousel .text-slide:nth-child(3n) {
+      background: #62718d;
+      color: #fff; }
+  .carousel .inner {
+    padding: 30px; }
+  .carousel .img-slide {
+    font-family: 'object-fit: contain; object-position: center;';
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -o-object-position: center;
+    object-position: center;
+    width: 100%; }
+  .carousel .text-slide,
+  .carousel .img-slide {
+    height: 350px; }
+  @media (min-width: 768px) {
+    .carousel .cycle-slideshow {
+      width: 50%; } }
 
 .grid-cta .abv-filter {
   display: block; }
 
 .grid-cta figure {
-  background: #F2F2F2;
+  background: #f2f2f2;
   margin: 0 0 2px;
   padding: 40px 0 0;
   width: 100%; }

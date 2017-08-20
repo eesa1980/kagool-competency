@@ -10,9 +10,12 @@ const GridCTA = (() => {
 
     let data = {};
 
-    /* Fetch Data and then render the accordion template */
     const renderGrid = (beersData) => {
+
+        //Set data variable to be used in onChangeABVFilter function if needed
         data = beersData;
+
+        //Use data object to render Handlebar element
         Helpers.HandlebarsHelper.renderElement({
             handlebarId: 'grid_cta_hb',
             data: {beers: data},
@@ -20,6 +23,7 @@ const GridCTA = (() => {
         });
     };
 
+    //When the ABV filter is changed
     const onChangeABVFilter = ((event) => {
 
         const
@@ -29,25 +33,30 @@ const GridCTA = (() => {
 
         let order = [];
 
+        //Set 'order' depending upon selected value
         switch (selectedOption) {
             case HIGH_TO_LOW:
-                order = ['asc', 'desc'];
+                order = ['asc', 'desc']; //Descending
                 break;
             case LOW_TO_HIGH:
-                order = ['desc', 'asc'];
+                order = ['desc', 'asc']; //Ascending
                 break;
             default:
+                order = ['asc', 'desc'];
         }
 
+        //Re-order data object using Lodash library
         let reorderedData = _.orderBy(data, ['type', 'abv'], order);
 
+        /* Pass in re-ordered data object and then re-render handlebar template */
         Helpers.HandlebarsHelper.renderElement({
             handlebarId: 'grid_cta_hb',
             data: {beers: reorderedData},
             outputElement: '#grid_cta'
         });
 
-        let myLazyLoad = new LazyLoad();
+        //re-init image lazyload
+        const lazyload = new LazyLoad();
 
     });
 

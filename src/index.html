@@ -7,143 +7,306 @@
     <link href="./css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">
+
+    <style>
+        .placeholder {
+            align-items: center;
+            background: #F2F2F2;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            margin-bottom: 100px;
+        }
+    </style>
+
 </head>
 <body>
 
 <main>
 
-    <div class="container">
-        <h1>Competency based task</h1>
-        <h2>Accordion</h2>
-    </div>
+    <header>
+        <div class="container fixed-width text-center">
+            <h1>Competency based tasks</h1>
+        </div>
+    </header>
+    <!--
+    //----------------------------------*\
+    // ACCORDION
+    //----------------------------------*/
 
-    <!-- ACCORDION
     Used handlebars as even though I am more familiar with ReactJS it seemed to be an overkill for such a small task
     -->
-    <script id="accordion_hb" type="text/x-handlebars-template">​
-        <div class="accordion">
-            <ul>
-                {{#each beers}}
-                <li>
-                    <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
-                       class="trigger">{{this.name}}</a>
-                    <ul class="dropdown">
-                        <li>
-                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
-                               class="trigger">Tagline</a>
-                            <ul class="dropdown">
-                                <li class="content">
-                                    <p>{{this.tagline}}</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
-                               class="trigger">First Brewed</a>
-                            <ul class="dropdown">
-                                <li class="content">
-                                    <p>{{this.first_brewed}}</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
-                               class="trigger">Description</a>
-                            <ul class="dropdown">
-                                <li class="content">
-                                    <p>{{this.description}}</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
-                               class="trigger">Food Pairing</a>
-                            <ul class="dropdown">
-                                <li class="content">
-                                    <ul>
-                                        {{#each this.food_pairing}}
-                                        <li>
-                                            {{this}}
-                                        </li>
-                                        {{/each}}
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                {{/each}}
-            </ul>
+    <section class="container fixed-width">
+        <script id="accordion_hb" type="text/x-handlebars-template">​
+            <h2>Task 1: Accordion</h2>
+            <p>
+                Below is an example of an accordion displaying all the beers available at
+                <a href="https://api.punkapi.com/v2/beers" target="_blank">https://api.punkapi.com/v2/beers</a>. When
+                clicked or tapped Each
+                beer section expands to reveal more sections, which in turn reveal the tagline, brewing date,
+                description and food pairing of each beer.
+            </p>
+
+            <div class="accordion">
+                <ul>
+                    {{#each beers}}
+                    <li>
+                        <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                           class="trigger">{{this.name}}</a>
+                        <ul class="dropdown">
+                            <li>
+                                <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                                   class="trigger">Tagline</a>
+                                <ul class="dropdown">
+                                    <li class="content">
+                                        <p>{{this.tagline}}</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                                   class="trigger">First Brewed</a>
+                                <ul class="dropdown">
+                                    <li class="content">
+                                        <p>{{this.first_brewed}}</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                                   class="trigger">Description</a>
+                                <ul class="dropdown">
+                                    <li class="content">
+                                        <p>{{this.description}}</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                                   class="trigger">Food Pairing</a>
+                                <ul class="dropdown">
+                                    <li class="content">
+                                        <ul>
+                                            {{#each this.food_pairing}}
+                                            <li>
+                                                {{this}}
+                                            </li>
+                                            {{/each}}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </script>
+
+        <div id="accordion">
+            <!-- Dynamic content rendered here -->
+            <div class="placeholder">
+            <span>
+                Loading accordion...
+            </span>
+            </div>
+            <!-- ./ Dynamic content rendered here -->
         </div>
-    </script>
-    <div id="accordion"><!-- Dynamic content rendered here --></div>
+    </section>
     <!-- ./ACCORDION -->
 
-    <div class="carousel">
+    <!--
+    //----------------------------------*\
+    // CAROUSELS
+    //----------------------------------*/
 
-        <div class="container">
-            <h2>Carousel</h2>
-        </div>
-
-        <!-- Cycle 2 carousel -->
-        <div class="cycle-slideshow auto"
-             data-cycle-fx=scrollHorz
-             data-cycle-timeout=2000
-             data-cycle-caption=".caption2"
-             data-cycle-loader=true
-             data-cycle-progressive="#images2"
-        >
-            <!-- only one image declared in markup -->
-            <img src="http://malsup.github.io/images/beach1.jpg" alt="test">
-            <script id="images2" type="text/cycle">
-            <img src='http://malsup.github.io/images/beach2.jpg' alt="test">
-            <img src='http://malsup.github.io/images/beach3.jpg' alt="test">
-            <img src='http://malsup.github.io/images/beach9.jpg' alt="test">
-
-            </script>
-        </div>
-        <!-- Cycle 2 carousel -->
-    </div>
-
-
-    <!-- CTA GRID -->
-    <div class="container">
-        <h2>CTA Grid</h2>
-        <div class="abv-filter">
-            <label for="abv_filter">Abv filter:&nbsp;</label>
-            <select name="abv_filter" id="abv_filter" onchange="GridCTA.onChangeABVFilter(event, this)">
-                <option disabled selected>
-                    - select -
-                </option>
-                <option value="high_to_low">
-                    High to low
-                </option>
-                <option value="low_to_high">
-                    Low to high
-                </option>
-            </select>
-        </div>
-    </div>
-
-    <script id="grid_cta_hb" type="text/x-handlebars-template">​
-        <div class="grid-cta">
+    Unable to load dynamic content as there was some issue preventing me from dynamically initialising the plugin from
+    JS files.
+    -->
+    <section class="container fixed-width">
+        <h2>Task 2: Carousel</h2>
+        <p>
+            I have created two carousels below. The first one displays text using fade transitions and the other uses an
+            image slider with each image being lazy loaded. Sadly, I experienced an unknown issue with the Cycle 2
+            plugin which prevented me from initialising it dynamically. Therefore, I've just populated it with with
+            dummy data and images.
+        </p>
+        <div class="carousel">
             <div class="flex-wrapper">
-                {{#each beers}}
-                <figure>
-                    <img data-original="{{{this.image_url}}}" alt="{{{this.name}}}" width="272" height="1058"/>
-                    <figcaption>
-                        <h3>{{this.name}}</h3>
-                        <h4>{{this.tagline}}</h4>
-                        <h5>Abv: {{this.abv}}</h5>
-                        <p>{{this.description}}</p>
-                    </figcaption>
-                </figure>
-                {{/each}}
+                <!-- Carousel 1 -->
+                <div class="cycle-slideshow"
+                     data-cycle-timeout="4000"
+                     data-cycle-speed="1000"
+                     data-cycle-fx="fade"
+                     data-cycle-slides="> div"
+                >
+                    <div class="text-slide">
+                        <div class="inner">
+                            <h3>Slide 1</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore
+                                magna
+                                aliqua.
+                                Ut
+                                enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo
+                                consequat.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-slide">
+                        <div class="inner">
+                            <h3>Slide 2</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut
+                                labore
+                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris
+                                nisi
+                                ut
+                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                                velit
+                                esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident,
+                                sunt
+                                in
+                                culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-slide">
+                        <div class="inner">
+                            <h3>Slide 3</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore
+                                magna
+                                aliqua.
+                                Ut
+                                enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                commodo
+                                consequat.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-slide">
+                        <div class="inner">
+                            <h3>Slide 4</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut
+                                labore
+                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris
+                                nisi
+                                ut
+                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                                velit
+                                esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident,
+                                sunt
+                                in
+                                culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./Carousel 1 -->
+
+                <!-- Carousel 2 -->
+                <div class="cycle-slideshow auto"
+                     data-cycle-fx=scrollHorz
+                     data-cycle-timeout=2000
+                     data-cycle-easing="linear"
+                     data-cycle-loader=true
+                     data-cycle-progressive="#images"
+                >
+                    <img class="img-slide" alt="Image 1" src="./image/2.png" width="100" height="389">
+                    <script id="images" type="text/cycle">
+                    <img class="img-slide" alt="Image 2" src="./image/4.png" width="100" height="390">
+                    <img class="img-slide" alt="Image 3" src="./image/5.png" width="100" height="390">
+                    <img class="img-slide" alt="Image 4" src="./image/6.png" width="100" height="389">
+                    <img class="img-slide" alt="Image 5" src="./image/7.png" width="100" height="381">
+                    <img class="img-slide" alt="Image 6" src="./image/8.png"  width="100" height="390">
+                    <img class="img-slide" alt="Image 7" src="./image/keg.png" width="101" height="199">
+                    </script>
+
+                </div>
+                <!-- ./Carousel 2 -->
             </div>
         </div>
-    </script>
-    <div id="grid_cta"><!-- Dynamic content rendered here --></div>
-    <!-- ./CTA GRID -->
+    </section>
+    <!-- ./Carousels -->
+
+    <!--
+    //----------------------------------*\
+    // CTA grid
+    //----------------------------------*/
+    -->
+
+    <section>
+        <div class="container fixed-width">
+            <h2>CTA Grid</h2>
+            <div class="abv-filter">
+                <label for="abv_filter">Abv filter:&nbsp;</label>
+                <select name="abv_filter" id="abv_filter" onchange="GridCTA.onChangeABVFilter(event)">
+                    <option disabled selected>
+                        - select -
+                    </option>
+                    <option value="high_to_low">
+                        High to low
+                    </option>
+                    <option value="low_to_high">
+                        Low to high
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <script id="grid_cta_hb" type="text/x-handlebars-template">​
+            <div class="grid-cta">
+                <div class="flex-wrapper">
+                    {{#each beers}}
+                    <figure>
+                        <img data-original="{{{this.image_url}}}" alt="{{{this.name}}}" width="272" height="1058"
+                             src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="/>
+                        <figcaption>
+                            <h3>{{this.name}}</h3>
+                            <h4>{{this.tagline}}</h4>
+                            <h5>Abv: {{this.abv}}</h5>
+                            <p>{{this.description}}</p>
+                        </figcaption>
+                    </figure>
+                    {{/each}}
+                </div>
+            </div>
+        </script>
+
+        <div id="grid_cta">
+            <!-- Dynamic content rendered here -->
+            <div class="placeholder">
+            <span>
+                Loading CTA grid...
+            </span>
+            </div>
+            <!-- ./ Dynamic content rendered here -->
+        </div>
+        <!-- ./CTA grid -->
+    </section>
+
+    <footer>
+        <div class="container fixed-width text-center">
+            <p>Lewis James-Odwin,
+                <script>var date = new Date();
+                document.write(date.getFullYear())</script>
+            </p>
+        </div>
+    </footer>
 </main>
 
 <!-- build:js -->

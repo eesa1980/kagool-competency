@@ -1,12 +1,8 @@
 {
   "name": "lewis_james_odwin",
   "version": "1.0.0",
-  "description": "",
+  "description": "Competency Based Task",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
   "license": "ISC",
   "babel": {
     "presets": [
@@ -28,6 +24,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-html-minifier": "latest",
     "gulp-html-replace": "^1.6.2",
+    "gulp-imagemin": "^3.3.0",
     "gulp-jshint": "^2.0.4",
     "gulp-sass": "^3.1.0",
     "gulp-sass-lint": "^1.3.2",

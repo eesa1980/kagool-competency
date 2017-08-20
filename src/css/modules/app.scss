@@ -2,6 +2,7 @@
 
 body {
   font-family: $font;
+  line-height: 1.4;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -16,4 +17,16 @@ img {
   padding: 0 15px;
 }
 
+.fixed-width {
+  max-width: 800px;
+}
 
+.flex-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.text-center {
+  text-align: center;
+}
