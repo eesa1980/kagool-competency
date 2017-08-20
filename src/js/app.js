@@ -11,7 +11,6 @@ import GridCTAModule from './modules/gridCTA/GridCTA';
 import LazyLoad from 'vanilla-lazyload/dist/lazyload.min';
 import objectFitImages from 'object-fit-images';
 import * as loadCSS from 'fg-loadcss';
-import {onloadCSS} from './helpers/Helpers';
 
 //Polyfill for ES6 Promises, needed particularly for IE11 and lower
 es6Promise.polyfill();
@@ -51,11 +50,6 @@ $(function () {
                 //Lazy load images from faster load times
                 const lazyload = new LazyLoad();
 
-                onloadCSS( loadCSS.loadCSS("css/style.css"), function() {
-                    loadCSS.loadCSS("https://fonts.googleapis.com/css?family=Lato:400,700");
-                    loadCSS.loadCSS("https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");
-                    $('.loader').fadeOut();
-                });
             }
         });
 

@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <title>Competency Based Task</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link href="./css/style.css" rel="stylesheet">-->
-    <!--<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">-->
-    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">-->
+    <link href="./css/style.css" rel="stylesheet">
 
     <style>
         .placeholder {
@@ -18,26 +16,10 @@
             margin-bottom: 100px;
         }
 
-        .loader{
-            align-items: center;
-            background: #fff;
-            display: flex;
-            height: 100vh;
-            justify-content: center;
-            min-height: 100vh;
-            margin-bottom: 100px;
-            position: fixed;
-            width: 100vw;
-            z-index: 10;
-        }
     </style>
 
 </head>
 <body>
-
-<div class="loader">
-    <img src="./image/Spinner.gif" alt="Spinner" width="200" height="200">
-</div>
 
 <main>
 
@@ -253,6 +235,8 @@
                     <img class="img-slide" alt="Image 5" src="./image/7.png" width="100" height="381">
                     <img class="img-slide" alt="Image 6" src="./image/8.png"  width="100" height="390">
                     <img class="img-slide" alt="Image 7" src="./image/keg.png" width="101" height="199">
+
+
                     </script>
 
                 </div>
@@ -270,7 +254,12 @@
 
     <section>
         <div class="container fixed-width">
-            <h2>CTA Grid</h2>
+            <h2>Task 3: CTA Grid</h2>
+            <p>
+                Below is the CTA grid displaying all the beers from the API. Changing the ABV filter changes the order
+                between ascending and descending. Each image is lazy loaded as they are very large and will otherwise
+                slow down the loading of the page.
+            </p>
             <div class="abv-filter">
                 <label for="abv_filter">Abv filter:&nbsp;</label>
                 <select name="abv_filter" id="abv_filter" onchange="GridCTA.onChangeABVFilter(event)">
