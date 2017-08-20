@@ -148,10 +148,10 @@ const jsBuild = () => {
 
 const htmlBuild = () => {
     return gulp.src('./src/index.html')
-        // .pipe(htmlreplace({
-        //     'css': './css/style.css',
-        //     'js': './js/bundle.js'
-        // }))
+        .pipe(htmlreplace({
+            'css': './css/style.css',
+            'js': './js/bundle.js'
+        }))
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('./docs'))
 };
