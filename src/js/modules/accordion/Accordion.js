@@ -7,17 +7,6 @@ const AccordionModule = (() => {
     // The trigger element, which is set when user clicks an accordion button
     let $trigger;
 
-    // Pass in data and then render the accordion template
-    const renderAccordion = (data) => {
-        Helpers.HandlebarsHelper.renderElement({
-            handlebarId: 'accordion_hb',
-            data: {beers: data},
-            outputElement: '#accordion'
-        });
-
-        onKeyPressToggleAll();
-    };
-
     // Open or close dropdown when trigger clicked
     const onClickToggleDropdown = (e, el) => {
 
@@ -87,6 +76,18 @@ const AccordionModule = (() => {
                 $dropdown.slideUp();
             }
         });
+    };
+
+
+    // Pass in data and then render the accordion template
+    const renderAccordion = (data) => {
+        Helpers.HandlebarsHelper.renderElement({
+            handlebarId: 'accordion_hb',
+            data: {beers: data},
+            outputElement: '#accordion'
+        });
+
+        onKeyPressToggleAll();
     };
 
 

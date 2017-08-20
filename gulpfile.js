@@ -176,7 +176,7 @@ const imageCompressAndBuild = () => {
                 ]
             })
         ]))
-        .pipe(gulp.dest('docs/images/'));
+        .pipe(gulp.dest('docs/image/'));
 }
 
 //----------------------------------*\

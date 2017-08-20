@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Competency Based Task</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./css/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">
+    <!--<link href="./css/style.css" rel="stylesheet">-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">-->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">-->
 
     <style>
         .placeholder {
@@ -17,10 +17,27 @@
             min-height: 100vh;
             margin-bottom: 100px;
         }
+
+        .loader{
+            align-items: center;
+            background: #fff;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            min-height: 100vh;
+            margin-bottom: 100px;
+            position: fixed;
+            width: 100vw;
+            z-index: 10;
+        }
     </style>
 
 </head>
 <body>
+
+<div class="loader">
+    <img src="./image/Spinner.gif" alt="Spinner" width="200" height="200">
+</div>
 
 <main>
 
@@ -138,6 +155,7 @@
                      data-cycle-timeout="4000"
                      data-cycle-speed="1000"
                      data-cycle-fx="fade"
+                     data-cycle-log="false"
                      data-cycle-slides="> div"
                 >
                     <div class="text-slide">
@@ -225,6 +243,7 @@
                      data-cycle-easing="linear"
                      data-cycle-loader=true
                      data-cycle-progressive="#images"
+                     data-cycle-log="false"
                 >
                     <img class="img-slide" alt="Image 1" src="./image/2.png" width="100" height="389">
                     <script id="images" type="text/cycle">
@@ -301,7 +320,7 @@
 
     <footer>
         <div class="container fixed-width text-center">
-            <p>Lewis James-Odwin,
+            <p>Lewis James-Odwin,&nbsp;
                 <script>var date = new Date();
                 document.write(date.getFullYear())</script>
             </p>
