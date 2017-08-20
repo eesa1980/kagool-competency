@@ -30,11 +30,12 @@ $(() => {
             //Polyfill for object fit/position
             objectFitImages();
 
-
         }).then(() => {
 
         loadCSS.loadCSS("css/style.css");
-        // $('#loader').hide();
+        loadCSS.loadCSS("https://fonts.googleapis.com/css?family=Lato:400,700");
+        loadCSS.loadCSS("https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");
+        $('#loader').fadeOut();
     });
 });
 

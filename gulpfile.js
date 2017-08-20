@@ -64,7 +64,7 @@ gulp.task('browser-sync', ['sass', 'js', 'html', 'sass-lint', 'js-hint'], () => 
 
 const watch = () => {
     gulp.watch(["src/js/**/*.js"], ['js-hint', 'js']);
-    gulp.watch("src/scss/**/*.scss", ['sass', 'sass-lint']).on('change', browserSync.reload);
+    gulp.watch("src/css/**/*.scss", ['sass', 'sass-lint']).on('change', browserSync.reload);
     gulp.watch("./src/index.html", ['html']).on('change', browserSync.reload);
 };
 
@@ -97,7 +97,7 @@ gulp.task('js-hint', () => {
 });
 
 gulp.task('sass-lint', function () {
-    return gulp.src("src/scss/**/*.*")
+    return gulp.src("src/css/**/*.*")
         .pipe(sassLint())
         .pipe(sassLint.format())
         .pipe(sassLint.failOnError())
@@ -105,13 +105,13 @@ gulp.task('sass-lint', function () {
 });
 
 gulp.task('sass', function () {
-    return gulp.src("src/scss/style.scss")
+    return gulp.src("src/css/style.scss")
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 3 versions'],
             cascade: false
         }))
-        .pipe(gulp.dest('src/scss/'))
+        .pipe(gulp.dest('src/css/'))
 });
 
 gulp.task('html', () => {
@@ -150,7 +150,7 @@ const htmlBuild = () => {
 };
 
 const sassBuild = () => {
-    return gulp.src('src/scss/style.scss')
+    return gulp.src('src/css/style.css')
         .pipe(sass().on('error', sass.logError))
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(gulp.dest('docs/css/'))

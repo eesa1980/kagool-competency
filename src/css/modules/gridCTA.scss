@@ -50,8 +50,7 @@
 @media (min-width: 992px) {
   .grid-cta {
     figure {
-      border-right: 1px solid $white;
-      width: calc(25% - 6px);
+      width: calc(25% - 2px);
 
       &:nth-child(2n) {
         border-right: 2px solid $white;

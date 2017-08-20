@@ -105,8 +105,7 @@ img {
 
 @media (min-width: 992px) {
   .grid-cta figure {
-    border-right: 1px solid #fff;
-    width: calc(25% - 6px); }
+    width: calc(25% - 2px); }
     .grid-cta figure:nth-child(2n) {
       border-right: 2px solid #fff; }
     .grid-cta figure:nth-child(4n) {
