@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Title</title><link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="./css/style.css"></head><body><div id="loader" class="loader"><span>Loading..</span></div><main><div class="container"><h1>Competency based task</h1><h2>Accordion</h2></div><!--
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Title</title><meta name="viewport" content="width=device-width,initial-scale=1"><!--&lt;!&ndash; build:css &ndash;&gt;--><!--<link href="scss/style.css" rel="preload" as="style">--><!--&lt;!&ndash; endbuild &ndash;&gt;--><!--<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="preload" as="style">--><!--<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="preload" as="style">--></head><body><!--<div id="loader" class="loader">--><!--<span>Loading..</span>--><!--</div>--><main><div class="container"><h1>Competency based task</h1><h2>Accordion</h2></div><!--
     ACCORDION
     Used handlebars as even though I am more familiar with ReactJS it seemed to be an overkill for such a small task
     --><div id="accordion"><!-- Dynamic content rendered here --></div><script id="accordion_hb" type="text/x-handlebars-template">​
@@ -60,7 +60,7 @@
             <div class="flex-wrapper">
                 {{#each beers}}
                 <figure>
-                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{{this.image_url}}}" alt="{{{this.name}}}" width="272" height="1058"/>
+                    <!--<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{{this.image_url}}}" alt="{{{this.name}}}" width="272" height="1058"/>-->
                     <figcaption>
                         <h3>{{this.name}}</h3>
                         <h4>{{this.tagline}}</h4>
