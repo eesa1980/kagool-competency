@@ -4,23 +4,13 @@ import * as Constants from '../../constants/Constants';
 
 const AccordionModule = (() => {
     'use strict';
-    let _$trigger;
-
-    /* set Clicked trigger element */
-    const setTrigger = (triggerElement) => {
-        _$trigger = triggerElement;
-    };
-
-    /* get Clicked trigger element */
-    const getTrigger = () => {
-        return _$trigger;
-    };
+    let $trigger;
 
     /* Scrolls to top of trigger, then executes callback */
     const scrollToTopOfTrigger = (callback) => {
         setTimeout(function () {
             $('html, body').animate({
-                scrollTop: getTrigger().offset().top
+                scrollTop: $trigger.offset().top
             }, 1000);
         }, 500, callback);
     };
@@ -29,11 +19,11 @@ const AccordionModule = (() => {
     const onClickToggleDropdown = (e, el) => {
 
         e.preventDefault();
-        setTrigger($(el));
+        $trigger = $(el);
 
         /* Opens/Closes the clicked dropdown on trigger */
         const toggleClicked = () => {
-            getTrigger()
+            $trigger
                 .toggleClass('active')
                 .next()
                 .slideToggle();
@@ -41,7 +31,7 @@ const AccordionModule = (() => {
 
         /* Closes all other parent elements on trigger */
         const closeAllOthers = () => {
-            getTrigger()
+            $trigger
                 .parent().parent()
                 .find('.dropdown')
                 .slideUp()
@@ -52,13 +42,13 @@ const AccordionModule = (() => {
 
         /* Closes dropdown on trigger */
         const closeClicked = () => {
-            getTrigger()
+            $trigger
                 .removeClass('active')
                 .next()
                 .slideUp();
         };
 
-        const isCurrentDropdownOpen = getTrigger().hasClass('active');
+        const isCurrentDropdownOpen = $trigger.hasClass('active');
 
         if (isCurrentDropdownOpen) {
             closeClicked();
@@ -85,15 +75,12 @@ const AccordionModule = (() => {
     };
 
     /* Fetch Data and then render the accordion template */
-    const renderAccordion = () => {
-        Helpers.FetchHelper.fetchAll(Constants.APIEntryPoint)
-            .then((value) => {
-                Helpers.HandlebarsHelper.renderElement({
-                    handlebarId: 'accordion_hb',
-                    data: {beers: value},
-                    outputElement: '#accordion'
-                });
-            });
+    const renderAccordion = (data) => {
+        Helpers.HandlebarsHelper.renderElement({
+            handlebarId: 'accordion_hb',
+            data: {beers: data},
+            outputElement: '#accordion'
+        });
     };
 
 

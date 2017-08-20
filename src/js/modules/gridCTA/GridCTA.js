@@ -1,9 +1,7 @@
 /**
  * Created by lewisjames-odwin on 19/08/2017.
  */
-import $ from 'jquery';
 import * as Helpers from '../../helpers/Helpers';
-import * as Constants from '../../constants/Constants';
 import _ from 'lodash';
 
 const GridCTA = (() => {
@@ -12,16 +10,13 @@ const GridCTA = (() => {
     let data = {};
 
     /* Fetch Data and then render the accordion template */
-    const renderGrid = () => {
-        Helpers.FetchHelper.fetchAll(Constants.APIEntryPoint)
-            .then((value) => {
-                data = {beers: value};
-                Helpers.HandlebarsHelper.renderElement({
-                    handlebarId: 'grid_cta_hb',
-                    data: data,
-                    outputElement: '#grid_cta'
-                });
-            });
+    const renderGrid = (beersData) => {
+        data = beersData;
+        Helpers.HandlebarsHelper.renderElement({
+            handlebarId: 'grid_cta_hb',
+            data: {beers: data},
+            outputElement: '#grid_cta'
+        });
     };
 
     const onChangeABVFilter = ((event) => {
@@ -43,13 +38,15 @@ const GridCTA = (() => {
             default:
         }
 
-        const reorderedData = _.orderBy(data.beers, ['type', 'abv'], order);
+        let reorderedData = _.orderBy(data, ['type', 'abv'], order);
 
         Helpers.HandlebarsHelper.renderElement({
             handlebarId: 'grid_cta_hb',
             data: {beers: reorderedData},
             outputElement: '#grid_cta'
         });
+
+        Helpers.ImgDefer();
 
     });
 
@@ -59,7 +56,7 @@ const GridCTA = (() => {
     return {
         renderGrid: renderGrid,
         onChangeABVFilter: onChangeABVFilter
-    }
+    };
 
 })();
 

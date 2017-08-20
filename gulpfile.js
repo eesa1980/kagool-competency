@@ -49,7 +49,7 @@ const browserSync = require('browser-sync').create();
 // Used for browser hot reloading
 //--------------------------------------*/
 
-gulp.task('browser-sync', ['sass', 'js', 'html'], () => {
+gulp.task('browser-sync', ['sass', 'js', 'html', 'sass-lint', 'js-hint'], () => {
 
     browserSync.init({
         injectChanges: true,
@@ -122,10 +122,10 @@ gulp.task('html', () => {
 
 
 //----------------------------------*\
-// BUILD DIST FILES
+// BUILD DOCS FILES
 //----------------------------------*/
 
-gulp.task('build-dist', () => {
+gulp.task('build-docs', () => {
     jsBuild();
     htmlBuild();
     sassBuild();
@@ -136,7 +136,7 @@ const jsBuild = () => {
     return gulp.src('./src/bundle.js')
         .pipe(uglify())
         .on('error', gutil.log)
-        .pipe(gulp.dest('./dist/js/'));
+        .pipe(gulp.dest('./docs/js/'));
 };
 
 const htmlBuild = () => {
@@ -146,14 +146,14 @@ const htmlBuild = () => {
             'js': './js/bundle.js'
         }))
         .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest('./dist'))
+        .pipe(gulp.dest('./docs'))
 };
 
 const sassBuild = () => {
     return gulp.src('src/scss/style.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(sass({outputStyle: 'compressed'}))
-        .pipe(gulp.dest('dist/css/'))
+        .pipe(gulp.dest('docs/css/'))
 };
 
 //----------------------------------*\
