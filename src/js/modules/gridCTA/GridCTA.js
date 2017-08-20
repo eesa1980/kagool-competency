@@ -3,6 +3,7 @@
  */
 import * as Helpers from '../../helpers/Helpers';
 import _ from 'lodash';
+import LazyLoad from 'vanilla-lazyload/dist/lazyload.min';
 
 const GridCTA = (() => {
     "use strict";
@@ -46,7 +47,7 @@ const GridCTA = (() => {
             outputElement: '#grid_cta'
         });
 
-        Helpers.ImgDefer();
+        let myLazyLoad = new LazyLoad();
 
     });
 

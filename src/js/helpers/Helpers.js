@@ -3,6 +3,7 @@
  */
 import $ from 'jquery';
 import Handlebars from 'handlebars';
+import fetch from 'isomorphic-fetch';
 
 //----------------------------------*\
 // HELPER FILES
@@ -45,6 +46,7 @@ export const FetchHelper = (() => {
 })();
 
 export const ImgDefer = (() =>{
+    "use strict";
     let imgDefer = document.getElementsByTagName('img');
     for (let i = 0; i < imgDefer.length; i++) {
         if (imgDefer[i].getAttribute('data-src')) {

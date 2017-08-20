@@ -4,32 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        .loader {
-            align-items: center;
-            background: #62718D;
-            color: #fff;
-            display: flex;
-            font-size: 2em;
-            height: 100vh;
-            justify-content: center;
-            left: 0;
-            position: fixed;
-            top: 0;
-            width: 100vw;
-            z-index: 2;
-        }
-    </style>
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">
 </head>
 <body>
-
-<!-- Loading splash
-Used to hide content while page loads
--->
-<div id="loader" class="loader">
-    <span>Loading..</span>
-</div>
-<!-- Loading splash -->
 
 <main>
 
@@ -41,10 +20,91 @@ Used to hide content while page loads
     <!-- ACCORDION
     Used handlebars as even though I am more familiar with ReactJS it seemed to be an overkill for such a small task
     -->
-    <div id="accordion">
-        <!-- Dynamic content rendered here -->
-    </div>
+    <script id="accordion_hb" type="text/x-handlebars-template">​
+        <div class="accordion">
+            <ul>
+                {{#each beers}}
+                <li>
+                    <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                       class="trigger">{{this.name}}</a>
+                    <ul class="dropdown">
+                        <li>
+                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                               class="trigger">Tagline</a>
+                            <ul class="dropdown">
+                                <li class="content">
+                                    <p>{{this.tagline}}</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                               class="trigger">First Brewed</a>
+                            <ul class="dropdown">
+                                <li class="content">
+                                    <p>{{this.first_brewed}}</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                               class="trigger">Description</a>
+                            <ul class="dropdown">
+                                <li class="content">
+                                    <p>{{this.description}}</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
+                               class="trigger">Food Pairing</a>
+                            <ul class="dropdown">
+                                <li class="content">
+                                    <ul>
+                                        {{#each this.food_pairing}}
+                                        <li>
+                                            {{this}}
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </script>
+    <div id="accordion"><!-- Dynamic content rendered here --></div>
     <!-- ./ACCORDION -->
+
+    <div class="carousel">
+
+        <div class="container">
+            <h2>Carousel</h2>
+        </div>
+
+        <!-- Cycle 2 carousel -->
+        <div class="cycle-slideshow auto"
+             data-cycle-fx=scrollHorz
+             data-cycle-timeout=2000
+             data-cycle-caption=".caption2"
+             data-cycle-loader=true
+             data-cycle-progressive="#images2"
+        >
+            <!-- only one image declared in markup -->
+            <img src="http://malsup.github.io/images/beach1.jpg" alt="test">
+            <script id="images2" type="text/cycle">
+            <img src='http://malsup.github.io/images/beach2.jpg' alt="test">
+            <img src='http://malsup.github.io/images/beach3.jpg' alt="test">
+            <img src='http://malsup.github.io/images/beach9.jpg' alt="test">
+
+            </script>
+        </div>
+        <!-- Cycle 2 carousel -->
+    </div>
+
 
     <!-- CTA GRID -->
     <div class="container">
@@ -65,98 +125,30 @@ Used to hide content while page loads
         </div>
     </div>
 
-    <div id="grid_cta">
-        <!-- Dynamic content rendered here -->
-    </div>
+    <script id="grid_cta_hb" type="text/x-handlebars-template">​
+        <div class="grid-cta">
+            <div class="flex-wrapper">
+                {{#each beers}}
+                <figure>
+                    <img data-original="{{{this.image_url}}}" alt="{{{this.name}}}" width="272" height="1058"/>
+                    <figcaption>
+                        <h3>{{this.name}}</h3>
+                        <h4>{{this.tagline}}</h4>
+                        <h5>Abv: {{this.abv}}</h5>
+                        <p>{{this.description}}</p>
+                    </figcaption>
+                </figure>
+                {{/each}}
+            </div>
+        </div>
+    </script>
+    <div id="grid_cta"><!-- Dynamic content rendered here --></div>
     <!-- ./CTA GRID -->
-
 </main>
 
 <!-- build:js -->
-<script src="bundle.js" async></script>
+<script src="bundle.js"></script>
 <!-- endbuild -->
-
-<!--
-HANDLEBARS CONTENT
-PLACED HERE BELOW BUNDLE.JS SO PAGE LOADS QUICKER
--->
-<script id="accordion_hb" type="text/x-handlebars-template">​
-    <div class="accordion">
-        <ul>
-            {{#each beers}}
-            <li>
-                <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
-                   class="trigger">{{this.name}}</a>
-                <ul class="dropdown">
-                    <li>
-                        <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
-                           class="trigger">Tagline</a>
-                        <ul class="dropdown">
-                            <li class="content">
-                                <p>{{this.tagline}}</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
-                           class="trigger">First Brewed</a>
-                        <ul class="dropdown">
-                            <li class="content">
-                                <p>{{this.first_brewed}}</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
-                           class="trigger">Description</a>
-                        <ul class="dropdown">
-                            <li class="content">
-                                <p>{{this.description}}</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" onclick="Accordion.onClickToggleDropdown(event, this)"
-                           class="trigger">Food Pairing</a>
-                        <ul class="dropdown">
-                            <li class="content">
-                                <ul>
-                                    {{#each this.food_pairing}}
-                                    <li>
-                                        {{this}}
-                                    </li>
-                                    {{/each}}
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            {{/each}}
-        </ul>
-    </div>
-</script>
-
-<script id="grid_cta_hb" type="text/x-handlebars-template">​
-    <div class="grid-cta">
-        <div class="flex-wrapper">
-            {{#each beers}}
-            <figure>
-                <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{{this.image_url}}}" alt="{{{this.name}}}" width="272" height="1058"/>
-                <figcaption>
-                    <h3>{{this.name}}</h3>
-                    <h4>{{this.tagline}}</h4>
-                    <h5>Abv: {{this.abv}}</h5>
-                    <p>{{this.description}}</p>
-                </figcaption>
-            </figure>
-            {{/each}}
-        </div>
-    </div>
-</script>
-<!--
-./HANDLEBARS CONTENT
--->
 
 </body>
 </html>
