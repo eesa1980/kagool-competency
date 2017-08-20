@@ -5,6 +5,7 @@
     <title>Competency Based Task</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">
 
     <style>
         .placeholder {
@@ -29,13 +30,12 @@
         </div>
     </header>
     <!--
-    //----------------------------------*\
-    // ACCORDION
-    //----------------------------------*/
 
+    ACCORDION
     Used handlebars as even though I am more familiar with ReactJS it seemed to be an overkill for such a small task
+
     -->
-    <section class="container fixed-width">
+    <div class="container fixed-width">
         <script id="accordion_hb" type="text/x-handlebars-template">​
             <h2>Task 1: Accordion</h2>
             <p>
@@ -102,7 +102,7 @@
             </div>
         </script>
 
-        <div id="accordion">
+        <section id="accordion">
             <!-- Dynamic content rendered here -->
             <div class="placeholder">
             <span>
@@ -110,17 +110,17 @@
             </span>
             </div>
             <!-- ./ Dynamic content rendered here -->
-        </div>
-    </section>
+        </section>
+    </div>
     <!-- ./ACCORDION -->
 
     <!--
-    //----------------------------------*\
-    // CAROUSELS
-    //----------------------------------*/
+
+    CAROUSELS
 
     Unable to load dynamic content as there was some issue preventing me from dynamically initialising the plugin from
     JS files.
+
     -->
     <section class="container fixed-width">
         <h2>Task 2: Carousel</h2>
@@ -144,15 +144,8 @@
                         <div class="inner">
                             <h3>Slide 1</h3>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore
-                                magna
-                                aliqua.
-                                Ut
-                                enim
-                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo
-                                consequat.
+                                A deliciously robust, black malted beer with a decadent dark, dry cocoa flavour that
+                                provides an enticing backdrop to the Cascade hops.
                             </p>
                         </div>
                     </div>
@@ -160,21 +153,7 @@
                         <div class="inner">
                             <h3>Slide 2</h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore
-                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris
-                                nisi
-                                ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit
-                                esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident,
-                                sunt
-                                in
-                                culpa qui officia deserunt mollit anim id est laborum.
+                                2008 Prototype beer, a 4.7% wheat ale with crushed juniper berries and citrus peel.
                             </p>
                         </div>
                     </div>
@@ -182,14 +161,9 @@
                         <div class="inner">
                             <h3>Slide 3</h3>
                             <p>
-                                Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore
-                                magna
-                                aliqua.
-                                Ut
-                                enim
-                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo
-                                consequat.
+                                Our sixth Abstrakt, this imperial black IPA combined dark malts with a monumental triple
+                                dry-hop, using an all-star team of some of our favourite American hops. Roasty and
+                                resinous.
                             </p>
                         </div>
                     </div>
@@ -197,21 +171,8 @@
                         <div class="inner">
                             <h3>Slide 4</h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore
-                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                laboris
-                                nisi
-                                ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit
-                                esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident,
-                                sunt
-                                in
-                                culpa qui officia deserunt mollit anim id est laborum.
+                                A fusion of caramel malt flavours and punchy New Zealand hops. A session beer you can
+                                get your teeth into.
                             </p>
                         </div>
                     </div>
@@ -235,8 +196,6 @@
                     <img class="img-slide" alt="Image 5" src="./image/7.png" width="100" height="381">
                     <img class="img-slide" alt="Image 6" src="./image/8.png"  width="100" height="390">
                     <img class="img-slide" alt="Image 7" src="./image/keg.png" width="101" height="199">
-
-
                     </script>
 
                 </div>
@@ -247,65 +206,63 @@
     <!-- ./Carousels -->
 
     <!--
-    //----------------------------------*\
-    // CTA grid
-    //----------------------------------*/
+
+    CTA grid
+
     -->
 
-    <section>
-        <div class="container fixed-width">
-            <h2>Task 3: CTA Grid</h2>
-            <p>
-                Below is the CTA grid displaying all the beers from the API. Changing the ABV filter changes the order
-                between ascending and descending. Each image is lazy loaded as they are very large and will otherwise
-                slow down the loading of the page.
-            </p>
-            <div class="abv-filter">
-                <label for="abv_filter">Abv filter:&nbsp;</label>
-                <select name="abv_filter" id="abv_filter" onchange="GridCTA.onChangeABVFilter(event)">
-                    <option disabled selected>
-                        - select -
-                    </option>
-                    <option value="high_to_low">
-                        High to low
-                    </option>
-                    <option value="low_to_high">
-                        Low to high
-                    </option>
-                </select>
+    <section class="container fixed-width">
+        <h2>Task 3: CTA Grid</h2>
+        <p>
+            Below is the CTA grid displaying all the beers from the API. Changing the ABV filter changes the order
+            between ascending and descending. Each image is lazy loaded as they are very large and will otherwise
+            slow down the loading of the page.
+        </p>
+        <div class="abv-filter">
+            <label for="abv_filter">Abv filter:&nbsp;</label>
+            <select name="abv_filter" id="abv_filter" onchange="GridCTA.onChangeABVFilter(event)">
+                <option disabled selected>
+                    - select -
+                </option>
+                <option value="high_to_low">
+                    High to low
+                </option>
+                <option value="low_to_high">
+                    Low to high
+                </option>
+            </select>
+        </div>
+    </section>
+
+    <script id="grid_cta_hb" type="text/x-handlebars-template">​
+        <div class="grid-cta">
+            <div class="flex-wrapper">
+                {{#each beers}}
+                <figure>
+                    <img data-original="{{{this.image_url}}}" alt="{{{this.name}}}" width="272" height="1058"
+                         src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="/>
+                    <figcaption>
+                        <h3>{{this.name}}</h3>
+                        <h4>{{this.tagline}}</h4>
+                        <h5>Abv: {{this.abv}}</h5>
+                        <p>{{this.description}}</p>
+                    </figcaption>
+                </figure>
+                {{/each}}
             </div>
         </div>
+    </script>
 
-        <script id="grid_cta_hb" type="text/x-handlebars-template">​
-            <div class="grid-cta">
-                <div class="flex-wrapper">
-                    {{#each beers}}
-                    <figure>
-                        <img data-original="{{{this.image_url}}}" alt="{{{this.name}}}" width="272" height="1058"
-                             src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="/>
-                        <figcaption>
-                            <h3>{{this.name}}</h3>
-                            <h4>{{this.tagline}}</h4>
-                            <h5>Abv: {{this.abv}}</h5>
-                            <p>{{this.description}}</p>
-                        </figcaption>
-                    </figure>
-                    {{/each}}
-                </div>
-            </div>
-        </script>
-
-        <div id="grid_cta">
-            <!-- Dynamic content rendered here -->
-            <div class="placeholder">
+    <div id="grid_cta">
+        <!-- Dynamic content rendered here -->
+        <div class="placeholder">
             <span>
                 Loading CTA grid...
             </span>
-            </div>
-            <!-- ./ Dynamic content rendered here -->
         </div>
-        <!-- ./CTA grid -->
-    </section>
+        <!-- ./ Dynamic content rendered here -->
+    </div>
+    <!-- ./CTA grid -->
 
     <footer>
         <div class="container fixed-width text-center">

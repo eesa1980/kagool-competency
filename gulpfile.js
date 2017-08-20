@@ -114,7 +114,7 @@ gulp.task('sass', function () {
     return gulp.src("src/css/style.scss")
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
-            browsers: ['last 3 versions'],
+            browsers: ['last 2 versions'],
             cascade: false
         }))
         .pipe(gulp.dest('src/css/'))
@@ -148,10 +148,10 @@ const jsBuild = () => {
 
 const htmlBuild = () => {
     return gulp.src('./src/index.html')
-        .pipe(htmlreplace({
-            'css': './css/style.css',
-            'js': './js/bundle.js'
-        }))
+        // .pipe(htmlreplace({
+        //     'css': './css/style.css',
+        //     'js': './js/bundle.js'
+        // }))
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('./docs'))
 };

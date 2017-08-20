@@ -10,7 +10,6 @@ import fetch from 'isomorphic-fetch';
 import GridCTAModule from './modules/gridCTA/GridCTA';
 import LazyLoad from 'vanilla-lazyload/dist/lazyload.min';
 import objectFitImages from 'object-fit-images';
-import * as loadCSS from 'fg-loadcss';
 
 //Polyfill for ES6 Promises, needed particularly for IE11 and lower
 es6Promise.polyfill();
