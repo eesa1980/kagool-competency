@@ -1,11 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Competency Based Task</title><meta name="viewport" content="width=device-width,initial-scale=1"><link href="./css/style.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet"><style>.placeholder {
-            align-items: center;
-            background: #F2F2F2;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-            margin-bottom: 100px;
-        }</style></head><body><main><header><div class="container fixed-width text-center"><h1>Competency based tasks</h1></div></header><!--
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Competency Based Task</title><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet"><link href="./css/style.css" rel="stylesheet"></head><body><main><header><div class="container fixed-width text-center"><h1>Competency based tasks</h1></div></header><!--
 
     ACCORDION
     Used handlebars as even though I am more familiar with ReactJS it seemed to be an overkill for such a small task
@@ -73,23 +66,23 @@
                     </li>
                     {{/each}}
                 </ul>
-            </div></script><section id="accordion"><!-- Dynamic content rendered here --><div class="placeholder"><span>Loading accordion...</span></div><!-- ./ Dynamic content rendered here --></section></div><!-- ./ACCORDION --><!--
+            </div></script><div id="accordion"><!-- Dynamic content rendered here --><div class="placeholder"><span>Loading accordion...</span></div><!-- ./ Dynamic content rendered here --></div></div><!-- ./ACCORDION --><!--
 
     CAROUSELS
 
     Unable to load dynamic content as there was some issue preventing me from dynamically initialising the plugin from
     JS files.
 
-    --><section class="container fixed-width"><h2>Task 2: Carousel</h2><p>I have created two carousels below. The first one displays text using fade transitions and the other uses an image slider with each image being lazy loaded. Sadly, I experienced an unknown issue with the Cycle 2 plugin which prevented me from initialising it dynamically. Therefore, I've just populated it with with dummy data and images.</p><div class="carousel"><div class="flex-wrapper"><!-- Carousel 1 --><div class="cycle-slideshow" data-cycle-timeout="4000" data-cycle-speed="1000" data-cycle-fx="fade" data-cycle-log="false" data-cycle-slides="> div"><div class="text-slide"><div class="inner"><h3>Slide 1</h3><p>A deliciously robust, black malted beer with a decadent dark, dry cocoa flavour that provides an enticing backdrop to the Cascade hops.</p></div></div><div class="text-slide"><div class="inner"><h3>Slide 2</h3><p>2008 Prototype beer, a 4.7% wheat ale with crushed juniper berries and citrus peel.</p></div></div><div class="text-slide"><div class="inner"><h3>Slide 3</h3><p>Our sixth Abstrakt, this imperial black IPA combined dark malts with a monumental triple dry-hop, using an all-star team of some of our favourite American hops. Roasty and resinous.</p></div></div><div class="text-slide"><div class="inner"><h3>Slide 4</h3><p>A fusion of caramel malt flavours and punchy New Zealand hops. A session beer you can get your teeth into.</p></div></div></div><!-- ./Carousel 1 --><!-- Carousel 2 --><div class="cycle-slideshow auto" data-cycle-fx="scrollHorz" data-cycle-timeout="2000" data-cycle-easing="linear" data-cycle-loader="true" data-cycle-progressive="#images" data-cycle-log="false"><img class="img-slide" alt="Image 1" src="./image/2.png" width="100" height="389"><script id="images" type="text/cycle"><img class="img-slide" alt="Image 2" src="./image/4.png" width="100" height="390">
+    --><div class="container fixed-width"><h2>Task 2: Carousel</h2><p>I have created two carousels below. The first one displays text using fade transitions and the other uses an image slider with each image being lazy loaded. Sadly, I experienced an unknown issue with the Cycle 2 plugin which prevented me from initialising it dynamically. Therefore, I've just populated it with with dummy data and images.</p><div class="carousel"><div class="flex-wrapper"><!-- Carousel 1 --><div class="cycle-slideshow" data-cycle-timeout="4000" data-cycle-speed="1000" data-cycle-fx="fade" data-cycle-log="false" data-cycle-slides="> div"><div class="text-slide"><div class="inner"><h3>Slide 1</h3><p>A deliciously robust, black malted beer with a decadent dark, dry cocoa flavour that provides an enticing backdrop to the Cascade hops.</p></div></div><div class="text-slide"><div class="inner"><h3>Slide 2</h3><p>2008 Prototype beer, a 4.7% wheat ale with crushed juniper berries and citrus peel.</p></div></div><div class="text-slide"><div class="inner"><h3>Slide 3</h3><p>Our sixth Abstrakt, this imperial black IPA combined dark malts with a monumental triple dry-hop, using an all-star team of some of our favourite American hops. Roasty and resinous.</p></div></div><div class="text-slide"><div class="inner"><h3>Slide 4</h3><p>A fusion of caramel malt flavours and punchy New Zealand hops. A session beer you can get your teeth into.</p></div></div></div><!-- ./Carousel 1 --><!-- Carousel 2 --><div class="cycle-slideshow auto" data-cycle-fx="scrollHorz" data-cycle-timeout="2000" data-cycle-easing="linear" data-cycle-loader="true" data-cycle-progressive="#images" data-cycle-log="false"><img class="img-slide" alt="Image 1" src="./image/2.png" width="100" height="389"><script id="images" type="text/cycle"><img class="img-slide" alt="Image 2" src="./image/4.png" width="100" height="390">
                     <img class="img-slide" alt="Image 3" src="./image/5.png" width="100" height="390">
                     <img class="img-slide" alt="Image 4" src="./image/6.png" width="100" height="389">
                     <img class="img-slide" alt="Image 5" src="./image/7.png" width="100" height="381">
                     <img class="img-slide" alt="Image 6" src="./image/8.png"  width="100" height="390">
-                    <img class="img-slide" alt="Image 7" src="./image/keg.png" width="101" height="199"></script></div><!-- ./Carousel 2 --></div></div></section><!-- ./Carousels --><!--
+                    <img class="img-slide" alt="Image 7" src="./image/keg.png" width="101" height="199"></script></div><!-- ./Carousel 2 --></div></div></div><!-- ./Carousels --><!--
 
     CTA grid
 
-    --><section class="container fixed-width"><h2>Task 3: CTA Grid</h2><p>Below is the CTA grid displaying all the beers from the API. Changing the ABV filter changes the order between ascending and descending. Each image is lazy loaded as they are very large and will otherwise slow down the loading of the page.</p><div class="abv-filter"><label for="abv_filter">Abv filter:&nbsp;</label><select name="abv_filter" id="abv_filter" onchange="GridCTA.onChangeABVFilter(event)"><option disabled="disabled" selected="selected">- select -</option><option value="high_to_low">High to low</option><option value="low_to_high">Low to high</option></select></div></section><script id="grid_cta_hb" type="text/x-handlebars-template">​
+    --><div class="container fixed-width"><h2>Task 3: CTA Grid</h2><p>Below is the CTA grid displaying all the beers from the API. Changing the ABV filter changes the order between ascending and descending. Each image is lazy loaded as they are very large and will otherwise slow down the loading of the page.</p><div class="abv-filter"><label for="abv_filter">Abv filter:&nbsp;</label><select name="abv_filter" id="abv_filter" onchange="GridCTA.onChangeABVFilter(event)"><option disabled="disabled" selected="selected">- select -</option><option value="high_to_low">High to low</option><option value="low_to_high">Low to high</option></select></div></div><script id="grid_cta_hb" type="text/x-handlebars-template">​
         <div class="grid-cta">
             <div class="flex-wrapper">
                 {{#each beers}}

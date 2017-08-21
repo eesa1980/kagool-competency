@@ -30,3 +30,12 @@ img {
 .text-center {
   text-align: center;
 }
+
+.placeholder {
+  align-items: center;
+  background: $concrete;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+  min-height: 100vh;
+}

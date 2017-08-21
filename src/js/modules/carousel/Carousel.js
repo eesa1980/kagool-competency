@@ -7,7 +7,7 @@ const Carousel = (() => {
     "use strict";
 
     const renderCarousel = () => {
-        return undefined;
+        return false;
     };
 
     //When the ABV filter is changed

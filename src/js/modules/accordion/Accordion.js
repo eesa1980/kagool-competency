@@ -1,10 +1,15 @@
 import $ from 'jquery';
-import * as Helpers from '../../helpers/Helpers';
+import {renderElement} from '../../helpers/Helpers';
 
 const AccordionModule = (() => {
     'use strict';
 
-    // The trigger element, which is set when user clicks an accordion button
+    /*
+    I find it's easy for me to get carried away with jQuery code so I've used a lot of functions to help me
+    understand what's going on.  Probably not the best thing as it creates extra lines of code!
+    */
+
+    // The clicked trigger
     let $trigger;
 
     // Open or close dropdown when trigger clicked
@@ -13,7 +18,7 @@ const AccordionModule = (() => {
         // Stop anchor from trying to navigate
         e.preventDefault();
 
-        // Set trigger as jQuery element with 'this' returned from clicked trigger.
+        // Set trigger with 'this' returned from clicked trigger.
         $trigger = $(el);
 
         // Opens/Closes the clicked dropdown on trigger
@@ -63,7 +68,7 @@ const AccordionModule = (() => {
                 toggleClicked();
             })());
         }
-    }; 
+    };
 
     // Open or close all on keypress up/down arrows
     const onKeyPressToggleAll = () => {
@@ -81,7 +86,7 @@ const AccordionModule = (() => {
 
     // Pass in data and then render the accordion template
     const renderAccordion = (data) => {
-        Helpers.HandlebarsHelper.renderElement({
+        renderElement({
             handlebarId: 'accordion_hb',
             data: {beers: data},
             outputElement: '#accordion'

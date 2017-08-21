@@ -4,21 +4,8 @@
     <meta charset="UTF-8">
     <title>Competency Based Task</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./css/style.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">
-
-    <style>
-        .placeholder {
-            align-items: center;
-            background: #F2F2F2;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-            margin-bottom: 100px;
-        }
-
-    </style>
-
+    <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
 
@@ -102,7 +89,7 @@
             </div>
         </script>
 
-        <section id="accordion">
+        <div id="accordion">
             <!-- Dynamic content rendered here -->
             <div class="placeholder">
             <span>
@@ -110,7 +97,7 @@
             </span>
             </div>
             <!-- ./ Dynamic content rendered here -->
-        </section>
+        </div>
     </div>
     <!-- ./ACCORDION -->
 
@@ -122,7 +109,7 @@
     JS files.
 
     -->
-    <section class="container fixed-width">
+    <div class="container fixed-width">
         <h2>Task 2: Carousel</h2>
         <p>
             I have created two carousels below. The first one displays text using fade transitions and the other uses an
@@ -202,7 +189,7 @@
                 <!-- ./Carousel 2 -->
             </div>
         </div>
-    </section>
+    </div>
     <!-- ./Carousels -->
 
     <!--
@@ -211,7 +198,7 @@
 
     -->
 
-    <section class="container fixed-width">
+    <div class="container fixed-width">
         <h2>Task 3: CTA Grid</h2>
         <p>
             Below is the CTA grid displaying all the beers from the API. Changing the ABV filter changes the order
@@ -232,7 +219,7 @@
                 </option>
             </select>
         </div>
-    </section>
+    </div>
 
     <script id="grid_cta_hb" type="text/x-handlebars-template">​
         <div class="grid-cta">
@@ -263,6 +250,8 @@
         <!-- ./ Dynamic content rendered here -->
     </div>
     <!-- ./CTA grid -->
+
+
 
     <footer>
         <div class="container fixed-width text-center">

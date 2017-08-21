@@ -1,7 +1,7 @@
 /**
  * Created by lewisjames-odwin on 19/08/2017.
  */
-import * as Helpers from '../../helpers/Helpers';
+import {renderElement} from '../../helpers/Helpers';
 import _ from 'lodash';
 import LazyLoad from 'vanilla-lazyload/dist/lazyload.min';
 
@@ -16,7 +16,7 @@ const GridCTA = (() => {
         data = beersData;
 
         //Use data object to render Handlebar element
-        Helpers.HandlebarsHelper.renderElement({
+        renderElement({
             handlebarId: 'grid_cta_hb',
             data: {beers: data},
             outputElement: '#grid_cta'
@@ -49,7 +49,7 @@ const GridCTA = (() => {
         let reorderedData = _.orderBy(data, ['type', 'abv'], order);
 
         /* Pass in re-ordered data object and then re-render handlebar template */
-        Helpers.HandlebarsHelper.renderElement({
+        renderElement({
             handlebarId: 'grid_cta_hb',
             data: {beers: reorderedData},
             outputElement: '#grid_cta'
