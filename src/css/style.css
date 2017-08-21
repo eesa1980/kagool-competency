@@ -43,6 +43,9 @@ img {
   margin-bottom: 100px;
   min-height: 100vh; }
 
+.strike-through {
+  text-decoration: line-through; }
+
 .accordion {
   margin-bottom: 100px; }
   .accordion ul {
@@ -110,7 +113,6 @@ img {
     padding: 30px; }
   .carousel .img-slide {
     font-family: 'object-fit: contain; object-position: center;';
-    height: 100%;
     -o-object-fit: contain;
     object-fit: contain;
     -o-object-position: center;

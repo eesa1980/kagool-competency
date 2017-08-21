@@ -14,6 +14,7 @@ import objectFitImages from 'object-fit-images';
 //Polyfill for ES6 Promises, needed particularly for IE11 and lower
 polyfill();
 
+
 $(function () {
     'use strict';
     //Async fetch data needed via Promise and return as JSON object
